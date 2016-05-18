@@ -89,30 +89,27 @@ TEST(GoalUndoTest, EmptyNameforAdd)
   ASSERT_EQ("", gundo.getGoal());
 }
 
-/*
-TEST(GoalUndoTest, AddingSubCategories)
+TEST(GoalUndoTest, AddingAdjacentsEntries)
 {
   GoalUndo gundo;
-  gundo.addOperation("Arts", "Music");
-  gundo.addOperation("Psychology");
-  gundo.addOperation("Philanthrophy");
-  gundo.addOperation("Physiology");
-  gundo.addOperation("Science", "Physics");
-  gundo.addOperation("Chemistry");
-  gundo.addOperation(" MolecularBio");
+  gundo.addOperation("Movies", "Genre");
+  gundo.addOperation("Comedy");
+  gundo.addOperation("Adventure");
+  gundo.addOperation("Theater", "Musical");
+  gundo.addOperation("Dramatics");
+  gundo.addOperation("Documentary");
 
-  ASSERT_EQ("Science", gundo.getGoal());
-  ASSERT_EQ("Physics Chemistry MolecularBio", gundo.getOperations());
+  ASSERT_EQ("Theater", gundo.getGoal());
+  ASSERT_EQ("Musical Dramatics Documentary", gundo.getOperations());
   gundo.undoGoal();
 
-  ASSERT_EQ("Arts", gundo.getGoal());
-  ASSERT_EQ("Music Pyschology Philathrophy Physiology", gundo.getOperations());
+  ASSERT_EQ("Movies", gundo.getGoal());
+  ASSERT_EQ("Genre Comedy Adventure", gundo.getOperations());
   gundo.undoGoal();
-
 
   gundo.undoGoal();
   ASSERT_EQ("", gundo.getGoal());
   gundo.undoGoal();
   ASSERT_EQ("", gundo.getGoal());
   ASSERT_EQ("", gundo.getOperations());
-}*/
+}
